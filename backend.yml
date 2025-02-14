@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-api
-  namespace: three-app-tier
+  namespace: three-tier
   labels:
     role: backend
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: backend-api
-        image: myazureregistry143.azurecr.io/perseverance-project:VERSION
+        image: dileep.azurecr.io/perseverance-project:VERSION
         imagePullPolicy: Always
         env:
           - name: DB_CONN_STR
@@ -41,7 +41,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-service-api
-  namespace: three-app-tier
+  namespace: three-tier
 spec:
   type: NodePort
   ports:

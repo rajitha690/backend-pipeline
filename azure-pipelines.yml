@@ -1,5 +1,5 @@
 pool:
-  name: 'finalproject'
+  name: 'testpool'
   
 variables:
   version: 'backend_$(Build.BuildId)'
@@ -23,8 +23,8 @@ stages:
     - task: Docker@2
       displayName: 'Build Docker Image'
       inputs:
-        containerRegistry: 'dileep'
-        repository: 'dileep'
+        containerRegistry: 'perseverance04'
+        repository: 'perseverance-project'
         command: 'build'
         Dockerfile: '**/Dockerfile'
         tags: |
@@ -41,8 +41,8 @@ stages:
     - task: Docker@2
       displayName: 'Push Docker Image' 
       inputs:
-        containerRegistry: 'dileep'
-        repository: 'dileep'
+        containerRegistry: 'perseverance04'
+        repository: 'perseverance-project'
         command: 'push'
         tags: |
           $(version)
